@@ -188,7 +188,7 @@ class sssd (
     content => template($config_template),
   }
 
-  case $::osfamily {
+  case $::facts['os']['family'] {
     'RedHat': {
       if ($::facts['os']['name'] == 'Fedora' and versioncmp($::facts['os']['release']['major'], '28') >= 0) or
       ( $::facts['os']['name'] == 'Redhat' and versioncmp($::facts['os']['release']['major'], '8') >= 0) {
